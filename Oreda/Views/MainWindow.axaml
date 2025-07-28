@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Oreda.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Oreda.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Oreda">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<!--<TreeView Items="Binding RootItems">
+		<TreeView.DataTemplates>
+			<TreeDataTemplate DataType="{x:Type local:FileSystemItem}" ItemsSource="{Binding Children}">
+				<TextBlock  Text="Binding Name"/>
+			</TreeDataTemplate>
+		</TreeView.DataTemplates>
+	</TreeView>-->
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="4*"/>
+			<ColumnDefinition Width="6*"/>
+		</Grid.ColumnDefinitions>
+			<Grid Grid.Column="1" x:Name="gridRight" HorizontalAlignment="Left" Margin="0,0,20,0" ColumnDefinitions="*, *" RowDefinitions="*, *">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="7*"/>
+						<ColumnDefinition Width="3*"/>
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch"/>
+					<Button Grid.Column="1" x:Name="btnScan" Margin="5, 0, 0, 0">Scan</Button>
+			</Grid>
+	</Grid>
+	
+	
+    
+</Window>
