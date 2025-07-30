@@ -25,4 +25,8 @@
     </PackageReference>
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OredaDTO\OredaDTO.csproj" />
+  </ItemGroup>
 </Project>

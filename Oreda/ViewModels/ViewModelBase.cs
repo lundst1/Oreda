@@ -4,5 +4,6 @@ namespace Oreda.ViewModels
 {
     public class ViewModelBase : ReactiveObject
     {
+
     }
 }
