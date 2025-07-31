@@ -1,5 +1,8 @@
 ﻿using OredaDL;
 using OredaBL.Models;
+using OredaBL.Mappers;
+using OredaDTO;
+using OredaDTO.EventArguments;
 
 namespace OredaBL
 {
@@ -11,6 +14,10 @@ namespace OredaBL
         private FileSystemItem scannedFiles;
         //Private dictionary containing index of scanned items.
         private Dictionary<string, FileSystemItem> index;
+
+        public delegate void EventHandler<FileSystemItemEventArgs>(object sender, FileSystemItemEventArgs e);
+        public event EventHandler<FileSystemItemEventArgs>? FileSystemItemScanned;
+
         /// <summary>
         /// Constructor for the class OredaManager
         /// </summary>
@@ -27,6 +34,13 @@ namespace OredaBL
             FileSystemScanResults results = scanner.Scan(path);
             scannedFiles = results.FileSystemItem;
             index = results.Index;
+            FileSystemItemEventArgs e = new FileSystemItemEventArgs { fileSystemItemDTO = ScannedFilesDTO() };
+            FileSystemItemScanned(FileSystemItemScanned, e);
         }
+        private FileSystemItemDTO ScannedFilesDTO()
+        {
+            return FileSystemItemMapper.ToFileSystemItemDTO(scannedFiles);
+        }
+
     }
 }

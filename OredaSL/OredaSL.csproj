@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OredaBL\OredaBL.csproj" />
+    <ProjectReference Include="..\OredaDTO\OredaDTO.csproj" />
+  </ItemGroup>
+
 </Project>
